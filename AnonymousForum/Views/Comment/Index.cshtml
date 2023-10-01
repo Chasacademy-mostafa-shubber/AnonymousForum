@@ -1,0 +1,23 @@
+﻿@model AnonymousForum.Models.ViewModels
+
+<h2>Post</h2>
+<br />
+
+<h3>Title: @Model.Post.Title</h3>
+<p>Description: @Model.Post.Description</p>
+
+<br />
+<a asp-action="Create" asp-controller="Comment" asp-route-id="@Model.Post.PostID">Add comment</a>
+<br />
+<h3>Comments</h3>
+
+<hr />
+
+@foreach (var item in ViewBag.commentList)
+{
+    <div style="width:auto; margin-top:10px; padding:10px; border: 1px solid gray;">
+        <h4>Title: @item.Comment.Title</h4>
+        <p>Description: @item.Comment.Description</p>
+    </div>
+}
+

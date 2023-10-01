@@ -1,0 +1,20 @@
+﻿@model IEnumerable<AnonymousForum.Models.ViewModels>
+
+
+   
+<h2>Topics</h2>
+<br />
+
+
+<a asp-action="Create">Add topic</a>
+<hr />
+
+@foreach (var item in Model)
+{
+
+ <div style="width:auto; border:2px solid gray; padding:10px; margin-top:10px;">
+       <h4>@item.Topic.Name</h4>
+       <a asp-action="Index" asp-controller="Post" asp-route-id="@item.Topic.TopicID">Details</a>
+    </div> 
+    
+}

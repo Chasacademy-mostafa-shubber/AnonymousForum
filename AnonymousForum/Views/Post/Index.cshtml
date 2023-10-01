@@ -1,0 +1,20 @@
+﻿@model AnonymousForum.Models.ViewModels
+
+<h2>Topic</h2><br />
+<h3>Topic: @Model.Topic.Name</h3>
+<br />
+
+<a asp-action="Create" asp-controller="Post" asp-route-id="@Model.Topic.TopicID"> Create post</a>
+<br />
+
+<h2>Post</h2>
+<hr />
+
+@foreach (var item in ViewBag.postList){
+
+    <div style="width:auto; margin-top:10px; padding:10px; border: 1px solid gray;">
+        <h4>Title: @item.Post.Title</h4>
+        <p>Description: @item.Post.Description</p>
+        <a asp-action="Index" asp-controller="Comment" asp-route-id="@item.Post.PostID">Details</a>
+    </div>
+}
